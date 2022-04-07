@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeSpawner3 : MonoBehaviour
+public class CubeSpawner2 : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefabVar;
 
