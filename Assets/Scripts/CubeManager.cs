@@ -5,6 +5,7 @@ using UnityEngine;
 public class CubeManager : MonoBehaviour
 {
     private List<GameObject> _cubesList;
+    private List<GameObject> _cubesToRemove;
     private CubeSpawner _spawner;
 
     public static int CUBES_COUNT { get; private set; }
