@@ -7,6 +7,8 @@ public class CubeManager : MonoBehaviour
     private List<GameObject> _cubesList;
     private CubeSpawner _spawner;
 
+    public static int CUBES_COUNT { get; private set; }
+
     private void Awake()
     {
         _cubesList = new List<GameObject>();
@@ -15,7 +17,7 @@ public class CubeManager : MonoBehaviour
 
     private void OnSpawned()
     {
-        Debug.Log("popka");
+        CUBES_COUNT++;
     }
 
     private void OnEnable()
