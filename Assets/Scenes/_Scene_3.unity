@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1444252504}
   - component: {fileID: 1444252503}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c005b5fe6721d4b921b06043fcb7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cubesList: []
 --- !u!114 &1444252504
 MonoBehaviour:
   m_ObjectHideFlags: 0
