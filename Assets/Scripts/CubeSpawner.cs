@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CubeSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _cubePrefab;
+
+    public event Action Spawned = default;
+
+    private void Update()
     {
-        
+        SpawnCube();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnCube()
     {
-        
+        GameObject cube = Instantiate(_cubePrefab);
+        if (Spawned != null)
+            Spawned();
     }
 }

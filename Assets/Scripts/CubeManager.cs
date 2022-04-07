@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class CubeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<GameObject> _cubesList;
+    private CubeSpawner _spawner;
+
+    private void Awake()
     {
-        
+        _cubesList = new List<GameObject>();
+        _spawner = GetComponent<CubeSpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnSpawned()
     {
-        
+        Debug.Log("popka");
+    }
+
+    private void OnEnable()
+    {
+        _spawner.Spawned += OnSpawned;
+
+    }
+
+    private void OnDisable()
+    {
+        _spawner.Spawned -= OnSpawned;
+
     }
 }
