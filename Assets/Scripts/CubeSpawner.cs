@@ -1,11 +1,11 @@
 using UnityEngine;
-using System;
+using UnityEngine.Events;
 
 public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _cubePrefab;
 
-    public event Action Spawned = default;
+    public static UnityEvent<GameObject> ON_SPAWNED = new UnityEvent<GameObject>();
 
     private void Update()
     {
@@ -15,7 +15,6 @@ public class CubeSpawner : MonoBehaviour
     private void SpawnCube()
     {
         GameObject cube = Instantiate(_cubePrefab);
-        if (Spawned != null)
-            Spawned();
+        ON_SPAWNED.Invoke(cube);
     }
 }

@@ -40,5 +40,10 @@ public class CubeRedactor : MonoBehaviour
         float tScale = _cube.transform.localScale.x;
         tScale *= _scalingFactor; 
         _cube.transform.localScale = Vector3.one * tScale;
+
+        if (tScale <= 0.1f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
