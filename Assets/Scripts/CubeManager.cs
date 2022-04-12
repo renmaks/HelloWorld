@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CubeManager : MonoBehaviour
 {
-    private List<GameObject> _cubesList;
-    private List<GameObject> _cubesToRemove;
+    [SerializeField] private List<GameObject> _cubesList;
+    [SerializeField] private List<GameObject> _cubesToRemove;
     private CubeSpawner _cubeSpawner;
     private GameObject _cube;
 
@@ -16,16 +16,15 @@ public class CubeManager : MonoBehaviour
         _cubeSpawner = GetComponent<CubeSpawner>();
     }
 
-    private void Update()
-    {
-        DestroyCubes();
+    private void LateUpdate()
+    { 
+        AddCubeToCubesToRemoveListAndDestroy();
     }
 
     private void OnSpawned()
     {
         CUBES_COUNT++;
         AddCubeToCubesList();
-        AddCubeToCubesToRemoveList();
     }
 
     private void AddCubeToCubesList()
@@ -34,17 +33,16 @@ public class CubeManager : MonoBehaviour
         _cubesList.Add(_cube);
     }
 
-    private void AddCubeToCubesToRemoveList()
+    private void AddCubeToCubesToRemoveListAndDestroy()
     {
         foreach (var cube in _cubesList)
         {
-            if (cube.transform.localScale.x <= 0.1f)
+            if (cube != null && cube.transform.localScale.x <= 0.1f)
                 _cubesToRemove.Add(cube);
+            else
+                continue;
         }
-    }
 
-    private void DestroyCubes()
-    {
         foreach (var cube in _cubesToRemove)
         {
             _cubesList.Remove(cube);
