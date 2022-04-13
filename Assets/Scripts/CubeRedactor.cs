@@ -14,7 +14,7 @@ public class CubeRedactor : MonoBehaviour
 
     private void Start()
     {
-        _cube.name = "Cube " + CubeManager.CUBES_COUNT;
+        _cube.name = "Cube " + CubeSpawner.CUBES_COUNT;
         ChangeColorOfCube();
         ChangePositionOfCube();
     }
