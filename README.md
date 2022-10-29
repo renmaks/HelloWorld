@@ -1,5 +1,5 @@
 # HelloWorld
-A small project
+Небольшой проект, в котором кубики хаотично спавнятся и меняют свои размер и цвет. Взят из учебника Unity и C#. Геймдев от идеи до реализации.
 
-You can see it here:
+Его можно увидеть здесь:
 https://play.unity.com/mg/other/webgl-builds-151834
